@@ -58,7 +58,7 @@ const Portfolio = () => {
 
   const renderComingSoon = () => (
     <h1 className="section">
-      <span>Coming Soon</span>
+      <span>Coming Soon...</span>
     </h1>
   );
 
@@ -106,7 +106,7 @@ const Portfolio = () => {
     <Layout>
       <SEO title="Portofolio" />
       <section className="portofolio">
-        {renderTitle()}
+        {/* {renderTitle()} */}
         {renderComingSoon()}
       </section>
     </Layout>
