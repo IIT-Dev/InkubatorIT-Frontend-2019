@@ -56,6 +56,12 @@ const Portfolio = () => {
     </h1>
   );
 
+  const renderComingSoon = () => (
+    <h1 className="section">
+      <span>Coming Soon...</span>
+    </h1>
+  );
+
   const renderFilter = () => {
     return (
       <div className="section filters">
@@ -100,10 +106,8 @@ const Portfolio = () => {
     <Layout>
       <SEO title="Portofolio" />
       <section className="portofolio">
-        {renderTitle()}
-        {renderFilter()}
-        {renderProjects()}
-        {renderOffer()}
+        {/* {renderTitle()} */}
+        {renderComingSoon()}
       </section>
     </Layout>
   );
