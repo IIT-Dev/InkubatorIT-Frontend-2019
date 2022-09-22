@@ -19,7 +19,7 @@ import { isMobile, isQuestionConditionNotFulfilled } from '../helpers/request';
 import { validateEmail, validatePhoneNumber } from '../helpers/validation';
 
 const InputField = props => {
-  const { label, id, type, options, condition, hasCustomInput, isRequired, reducer, setWarning } = props;
+  const { label, id, type, options, condition, hasCustomInput, isRequired, reducer } = props;
   const [state, dispatch] = reducer;
 
   const actionTextInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,7 +53,7 @@ const InputField = props => {
       duration: 1000,
       smooth: true,
       offset: Math.max(
-        -(window.innerHeight * 0.5 - nextQuestionElement.clientHeight * 0.5),
+        -(window.innerHeight * 0.5 - nextQuestionElement!.clientHeight * 0.5),
         -(window.innerHeight * 0.25),
       ),
     });
@@ -61,12 +61,12 @@ const InputField = props => {
     if (
       (nextQuestionElement instanceof HTMLInputElement ||
         nextQuestionElement instanceof HTMLTextAreaElement ||
-        nextQuestionElement.id === 'submit-btn') &&
+        nextQuestionElement!.id === 'submit-btn') &&
       nextQuestionType !== 'radio' &&
       nextQuestionType !== 'checkbox' &&
       !isMobile()
     ) {
-      nextQuestionElement.focus();
+      nextQuestionElement!.focus();
     }
   };
 
@@ -303,11 +303,11 @@ const Request = () => {
           if (question.shouldRecorded === false) continue;
 
           if (Array.isArray(state[key])) {
-            params[question.column] = state[key].join(', ');
+            params[question.column!] = state[key].join(', ');
           } else if (state[key].startsWith('0')) {
-            params[question.column] = `'${state[key]}`;
+            params[question.column!] = `'${state[key]}`;
           } else {
-            params[question.column] = state[key];
+            params[question.column!] = state[key];
           }
         }
 
