@@ -318,8 +318,8 @@ const Request = () => {
         try {
           await axios({
             method: 'POST',
-            url: 'https://botmanpro.inkubatorit.com/api/project_request/',
-            data: state,
+            url: 'https://manpro-bot-74f8p.ondigitalocean.app/api/project_request/',
+            data,
           });
         } catch (error) {
           // catch and ignore error if linebot is down as long as data received in sheet
