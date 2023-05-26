@@ -75,7 +75,7 @@ const AboutPage = () => {
       <div className="contact">
         <div>
           <p className="title">Nomor Telepon:</p>
-          <p>0895420592600</p>
+          <p>(+62) 859 6024 9685</p>
         </div>
         <div>
           <p className="title">Lokasi:</p>
