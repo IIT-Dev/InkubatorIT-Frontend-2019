@@ -169,4 +169,4 @@ export const notices = [
   'Proyek yang sudah memiliki rancangan tampilan & desain akan dapat diproses dengan lebih cepat.',
 ];
 
-export const contacts = ['0895420592600'];
+export const contacts = ['(+62) 859 6024 9685'];
