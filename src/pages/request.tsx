@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import MaskedInput from 'react-text-mask';
-import emailMask from 'text-mask-addons/dist/emailMask';
-import { Element, scroller } from 'react-scroll';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import React, { useEffect, useState } from 'react';
+import { Element, scroller } from 'react-scroll';
+import MaskedInput from 'react-text-mask';
+import emailMask from 'text-mask-addons/dist/emailMask';
 
 import './scss/request.scss';
 
+import { Alert } from '../components/Alert';
+import Spinner from '../components/Spinner';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
-import Spinner from '../components/Spinner';
-import { Alert } from '../components/Alert';
 
-import { notices, questions, contacts } from '../data/request';
+import { contacts, notices, questions } from '../data/request';
 
-import { useRequestReducer } from '../reducers/request';
 import { isMobile, isQuestionConditionNotFulfilled } from '../helpers/request';
 import { validateEmail, validatePhoneNumber } from '../helpers/validation';
+import { useRequestReducer } from '../reducers/request';
 
 const InputField = props => {
   const { label, id, type, options, condition, hasCustomInput, isRequired, reducer } = props;
@@ -292,7 +292,7 @@ const Request = () => {
   const actionSubmitForm = async () => {
     try {
       const url =
-        'https://script.google.com/macros/s/AKfycbykkzLaiyG7aC7hN3xV6TNeNpbsFCL94QCMRTnA91OaoVhamH4bOTT7OtPigMk4irrUSg/exec';
+        'https://script.google.com/macros/s/AKfycby-9seyPQHKWh4aSDcDBSSwRgv14RggOOwRAcZp5nQIKTHkwYq0PEwRXtfZpz9aMvUu/exec';
 
       const getParams = () => {
         const params = { MANPRO: '', Timestamp: dayjs().format('M/D/YYYY hh:mm:ss') };
@@ -318,7 +318,7 @@ const Request = () => {
         try {
           await axios({
             method: 'POST',
-            url: 'https://manpro-bot-74f8p.ondigitalocean.app/api/project_request/',
+            url: 'https://manpro-bot.onrender.com/api/project_request/',
             data,
           });
         } catch (error) {
@@ -327,6 +327,7 @@ const Request = () => {
       };
 
       setLoading(true);
+
       const [response] = await Promise.all([
         axios({
           method: 'GET',
